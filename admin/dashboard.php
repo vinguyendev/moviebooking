@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <?php
+        include ("../admin/session.php");
         include_once ("../components/header-admin.php");
     ?>
 </head>
@@ -577,7 +578,7 @@
     </div>
 
     <?php
-        include_once ("../components/footer.php")
+        include_once ("../components/footer-admin.php")
     ?>
 </body>
 </html>
