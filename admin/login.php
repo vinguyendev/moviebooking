@@ -10,28 +10,18 @@
 </head>
 
 <?php
-    include ("../config/db.php");
+    include ('./controllers/Admin.php');
+?>
+
+<?php
+
+    $admin = new Admin();
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
-        $username = mysqli_real_escape_string($db,$_POST['username']);
-        $password = mysqli_real_escape_string($db,$_POST['password']);
+        $username =$_POST['username'];
+        $password =$_POST['password'];
 
-        $sql = "SELECT * FROM admin WHERE username = '$username' and password = '$password'";
-
-        $result = mysqli_query($db,$sql);
-        $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-        $active = $row['active'];
-
-        $count = mysqli_num_rows($result);
-
-        // If result matched $myusername and $mypassword, table row must be 1 row
-
-        if($count == 1) {
-            $_SESSION['admin'] = admin;
-            header("location: /admin");
-        }else {
-            $error = "Your Login Name or Password is invalid";
-        }
+        $login = $admin->login($username, $password);
 
     }
 
@@ -50,10 +40,22 @@
                         <label>Username</label>
                         <input type="text" name="username" class="form-control">
                     </div>
+
                     <div class="form-group">
                         <label>Password</label>
                         <input type="password" class="form-control" name="password">
                     </div>
+
+                    <div style="margin-bottom: 15px">
+                        <span style="color: red;font-size: 15px;margin-bottom: 10px">
+                            <?php
+                            if (isset($login)) {
+                                echo '* '.$login;
+                            }
+                            ?>
+                        </span>
+                    </div>
+
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Login</button>
                     </div>

@@ -1,8 +1,13 @@
+<?php
+    include '../lib/session.php';
+    $session = new Session();
+    Session::isLoginAdmin();
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
     <?php
-        include ("../admin/session.php");
         include_once ("../components/header-admin.php");
     ?>
 </head>
