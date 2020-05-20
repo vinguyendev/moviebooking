@@ -42,12 +42,12 @@ class Session {
                 return false;
             }
         }
-        header("Location: /admin/login.php");
+        header("Location: /admin/login.html");
     }
 
     public static function destroy() {
         session_destroy();
-        header("Location: /admin/login.php");
+        header("Location: /admin/login.html");
     }
 
 }
