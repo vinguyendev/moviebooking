@@ -10,7 +10,7 @@
 </head>
 
 <?php
-    include ('./controllers/Admin.php');
+    include ('controllers/Admin.php');
 ?>
 
 <?php
@@ -21,7 +21,7 @@
         $username =$_POST['username'];
         $password =$_POST['password'];
 
-        $login = $admin->login($username, $password);
+        $login = $admin->loginAdmin($username, $password);
 
     }
 

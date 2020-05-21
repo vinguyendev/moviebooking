@@ -1,45 +1,53 @@
 <?php
-    include '../lib/session.php';
-    include '../lib/database.php';
-    include '../helpers/format.php';
+    include '../lib/Format.php';
 ?>
 
 <?php
 
-class Admin {
+class Admin extends Controller {
     private $db;
     private $fm;
+    private $admin;
 
     public function __construct()
     {
-        $this->db = new Database();
         $this->fm = new Format();
+        $this->db = new Database();
+        $this->admin = $this->model('AdminModel');
     }
 
-    public function login($username, $password)
+    public function index()
+    {
+        $this->view('admin/index');
+    }
+
+    public function login()
+    {
+        $this->view('admin/login');
+    }
+
+    public function loginAdmin($username, $password)
     {
         $username = $this->fm->validation($username);
         $password = $this->fm->validation($password);
 
-        $username = mysqli_real_escape_string($this->db->link, $username);
-        $password = mysqli_real_escape_string($this->db->link, $password);
-
         if (empty($username) || empty($password)) {
             return "Username and Password must be not empty";
         } else {
-            $query = "SELECT * FROM admin WHERE username = '$username' AND password = '$password'";
+            $sql = "SELECT * FROM admin WHERE username = :username AND password = :password";
 
-            $result = $this->db->select($query);
+            $this->db->query($sql);
+            $this->db->bind(":username",$username);
+            $this->db->bind(":password",$password);
+            $this->db->execute();
 
-            if ($result!=false) {
-                $value = $result->fetch_assoc();
+            if ($this->db->rowCount()>0) {
                 $session = new Session();
-                $session->set("username", $value['username']);
+                $session->set("username", $username);
 
                 header('Location: /admin');
-            } else {
-                return "Username and Password not match";
             }
+            return  "Username and Password not match";
 
         }
     }

@@ -26,23 +26,28 @@ class Session {
         }
     }
 
-    public static function isLoginAdmin() {
+    function isLoginAdmin() {
+
         $username = self::get("username");
 
         if($username!=false) {
-            $sql = "SELECT username from admin where username = '$username'";
-
-            include_once "../lib/database.php";
+            $sql = "SELECT username FROM admin WHERE username = :username";
 
             $db = new Database();
 
-            $result = $db->select($sql);
+            $db->query($sql);
+            $db->bind(":username",$username);
+            $db->execute();
 
-            if ($result!=false) {
-                return false;
+            if ($db->rowCount()>0) {
+                return true;
+            }
+            else {
+                header("Location: /admin/login");
             }
         }
-        header("Location: /admin/login.html");
+
+        header("Location: /admin/login");
     }
 
     public static function destroy() {

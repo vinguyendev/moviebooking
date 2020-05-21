@@ -1,5 +1,5 @@
 <?php
-    include '../lib/session.php';
+    include '../lib/Session.php';
     $session = new Session();
     Session::isLoginAdmin();
 ?>
