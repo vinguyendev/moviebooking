@@ -2,7 +2,7 @@
     <div class="menu-header">
         <ul class="parent">
             <li>
-                <a href="#" class="logo"><img src="./public/assets/cgvlogo.png" alt=""></a>
+                <a href="/" class="logo"><img src="https://www.cgv.vn/skin/frontend/cgv/default/images/cgvlogo.png" alt=""></a>
             </li>
             <li id="mini-menu1" class="hover-effect">
                 <ul id="child-menu1" class="child-menu">
@@ -42,9 +42,9 @@
                     <i class="fa fa-search"></i>
                     <input type="text" placeholder="Tìm kiếm">
                 </div>
-                <a href="#" class="tin-tuc"><img src="./public/assets/tin-moi-uu-dai.gif" alt=""></a>
+                <a href="#" class="tin-tuc"><img src="https://www.cgv.vn/media/wysiwyg/2019/AUG/kenhcine.gif" alt=""></a>
             </div>
-            <a href="#" class="mua-ve"><img src="./public/assets/mua-ve_ngay.png" alt=""></a>
+            <a href="#" class="mua-ve"><img src="https://www.cgv.vn/media/wysiwyg/news-offers/mua-ve_ngay.png" alt=""></a>
         </div>
     </div>
 </div>

@@ -1,6 +1,5 @@
 <?php
 
-include_once("../config/config.php");
 
 /*
     * PDO Database Class

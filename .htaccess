@@ -1,8 +1,5 @@
 RewriteEngine On
+
 RewriteRule ^index$ index.php
-RewriteRule ^admin/$ admin/dashboard.php
-RewriteRule ^admin/login.html$ admin/login.php
-RewriteRule ^admin/movies$ admin/views/movies/index.php
-RewriteRule ^admin/movies/create$ admin/views/movies/create.php
 
 ErrorDocument 404 /404.php

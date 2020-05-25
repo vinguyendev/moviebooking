@@ -20,11 +20,7 @@
 
         <div id="layoutSidenav_content">
             <main>
-                <h1>
-                    <?php
-                        var_dump($data['movies'][0]->name);
-                    ?>
-                </h1>
+                
             </main>
         </div>
     </div>

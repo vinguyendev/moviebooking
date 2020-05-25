@@ -5,6 +5,18 @@
         include ("./components/header.php");
     ?>
 </head>
+<?php
+    require ('./config/config.php');
+    require ('./admin/lib/Database.php');
+
+    $db = new Database();
+
+    $db->query("SELECT * FROM movies");
+
+    $movies = $db->resultSet();
+
+?>
+
 <body>
 <!--TODO:   HEADER + 2 fixed BANNER-->
 <div class="header">
@@ -70,132 +82,30 @@
         <div class="justify-content-element parent">
             <div class="menu-movie" ng-controller="tablePhim">
                 <ul class="slide-movie">
-                    <li class="parent poster-movie" ng-repeat="item in listMovie">
-                        <div class="poster-movie parent hover-effect">
-                            <div class="rating-P child-abs"></div>
-                            <img src="https://www.cgv.vn/media/catalog/product/cache/1/small_image/240x388/dd828b13b1cb77667d034d5f59a82eb6/b/_/b_ho_ng_n_i_d_i_cgv_1.jpg" alt="" class="poster-off-movie">
-                        </div>
-                        <div class="infor-buyticket child-abs hover-effect movie-banner">
-                            <div class="infor-movie">
-                                <div class="name-movie">Bà hoàng nói dối</div>
-                                <div class="gr-button">
-                                    <a href="#" class="xem-chi-tiet">Xem chi tiết</a>
-                                    <a href="#" class="buy-ticket">
-                                        <span class="icon-call"></span>
-                                        Mua vé
-                                    </a>
+                    <?php
+                        foreach ($movies as $movie) {
+                            ?>
+                            <li class="parent poster-movie" ng-repeat="item in listMovie">
+                                <div class="poster-movie parent hover-effect">
+                                    <div class="rating-P child-abs"></div>
+                                    <img src="public/uploads/<?php echo $movie->image?>" alt="" class="poster-off-movie">
                                 </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="parent poster-movie" ng-repeat="item in listMovie">
-                        <div class="poster-movie parent hover-effect">
-                            <div class="rating-P child-abs"></div>
-                            <img src="https://www.cgv.vn/media/catalog/product/cache/1/small_image/240x388/dd828b13b1cb77667d034d5f59a82eb6/b/_/b_ho_ng_n_i_d_i_cgv_1.jpg" alt="" class="poster-off-movie">
-                        </div>
-                        <div class="infor-buyticket child-abs hover-effect movie-banner">
-                            <div class="infor-movie">
-                                <div class="name-movie">Bà hoàng nói dối</div>
-                                <div class="gr-button">
-                                    <a href="#" class="xem-chi-tiet">Xem chi tiết</a>
-                                    <a href="#" class="buy-ticket">
-                                        <span class="icon-call"></span>
-                                        Mua vé
-                                    </a>
+                                <div class="infor-buyticket child-abs hover-effect movie-banner">
+                                    <div class="infor-movie">
+                                        <div class="name-movie"><?php echo $movie->name?></div>
+                                        <div class="gr-button">
+                                            <a href="/default/<?php echo $movie->slug?>" class="xem-chi-tiet">Xem chi tiết</a>
+                                            <a href="#" class="buy-ticket">
+                                                <span class="icon-call"></span>
+                                                Mua vé
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="parent poster-movie" ng-repeat="item in listMovie">
-                        <div class="poster-movie parent hover-effect">
-                            <div class="rating-P child-abs"></div>
-                            <img src="https://www.cgv.vn/media/catalog/product/cache/1/small_image/240x388/dd828b13b1cb77667d034d5f59a82eb6/b/_/b_ho_ng_n_i_d_i_cgv_1.jpg" alt="" class="poster-off-movie">
-                        </div>
-                        <div class="infor-buyticket child-abs hover-effect movie-banner">
-                            <div class="infor-movie">
-                                <div class="name-movie">Bà hoàng nói dối</div>
-                                <div class="gr-button">
-                                    <a href="#" class="xem-chi-tiet">Xem chi tiết</a>
-                                    <a href="#" class="buy-ticket">
-                                        <span class="icon-call"></span>
-                                        Mua vé
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="parent poster-movie" ng-repeat="item in listMovie">
-                        <div class="poster-movie parent hover-effect">
-                            <div class="rating-P child-abs"></div>
-                            <img src="https://www.cgv.vn/media/catalog/product/cache/1/small_image/240x388/dd828b13b1cb77667d034d5f59a82eb6/b/_/b_ho_ng_n_i_d_i_cgv_1.jpg" alt="" class="poster-off-movie">
-                        </div>
-                        <div class="infor-buyticket child-abs hover-effect movie-banner">
-                            <div class="infor-movie">
-                                <div class="name-movie">Bà hoàng nói dối</div>
-                                <div class="gr-button">
-                                    <a href="#" class="xem-chi-tiet">Xem chi tiết</a>
-                                    <a href="#" class="buy-ticket">
-                                        <span class="icon-call"></span>
-                                        Mua vé
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="parent poster-movie" ng-repeat="item in listMovie">
-                        <div class="poster-movie parent hover-effect">
-                            <div class="rating-P child-abs"></div>
-                            <img src="https://www.cgv.vn/media/catalog/product/cache/1/small_image/240x388/dd828b13b1cb77667d034d5f59a82eb6/b/_/b_ho_ng_n_i_d_i_cgv_1.jpg" alt="" class="poster-off-movie">
-                        </div>
-                        <div class="infor-buyticket child-abs hover-effect movie-banner">
-                            <div class="infor-movie">
-                                <div class="name-movie">Bà hoàng nói dối</div>
-                                <div class="gr-button">
-                                    <a href="#" class="xem-chi-tiet">Xem chi tiết</a>
-                                    <a href="#" class="buy-ticket">
-                                        <span class="icon-call"></span>
-                                        Mua vé
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="parent poster-movie" ng-repeat="item in listMovie">
-                        <div class="poster-movie parent hover-effect">
-                            <div class="rating-P child-abs"></div>
-                            <img src="https://www.cgv.vn/media/catalog/product/cache/1/small_image/240x388/dd828b13b1cb77667d034d5f59a82eb6/b/_/b_ho_ng_n_i_d_i_cgv_1.jpg" alt="" class="poster-off-movie">
-                        </div>
-                        <div class="infor-buyticket child-abs hover-effect movie-banner">
-                            <div class="infor-movie">
-                                <div class="name-movie">Bà hoàng nói dối</div>
-                                <div class="gr-button">
-                                    <a href="#" class="xem-chi-tiet">Xem chi tiết</a>
-                                    <a href="#" class="buy-ticket">
-                                        <span class="icon-call"></span>
-                                        Mua vé
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="parent poster-movie" ng-repeat="item in listMovie">
-                        <div class="poster-movie parent hover-effect">
-                            <div class="rating-P child-abs"></div>
-                            <img src="https://www.cgv.vn/media/catalog/product/cache/1/small_image/240x388/dd828b13b1cb77667d034d5f59a82eb6/b/_/b_ho_ng_n_i_d_i_cgv_1.jpg" alt="" class="poster-off-movie">
-                        </div>
-                        <div class="infor-buyticket child-abs hover-effect movie-banner">
-                            <div class="infor-movie">
-                                <div class="name-movie">Bà hoàng nói dối</div>
-                                <div class="gr-button">
-                                    <a href="#" class="xem-chi-tiet">Xem chi tiết</a>
-                                    <a href="#" class="buy-ticket">
-                                        <span class="icon-call"></span>
-                                        Mua vé
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                            </li>
+                            <?php
+                        }
+                    ?>
                 </ul>
             </div>
             <div  id="next-movie" class="child-abs next" onclick="next_movie()"></div>
