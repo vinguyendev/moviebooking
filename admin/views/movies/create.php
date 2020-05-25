@@ -20,20 +20,76 @@
 
         <div id="layoutSidenav_content">
             <main>
+                <div class="container">
+                    
+                    <h1 style="text-align: center">Thêm phim mới</h1>
+                    <br><br>
+
+                    <form action="<?php echo URL_ROOT?>/admin/movies/create" method="POST" enctype="multipart/form-data" >
+
+                        <div class="form-group">
+                            <label>Tên phim</label>
+                            <input type="text" name="name" class="form-control" placeholder="Enter name movie">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Đạo diễn</label>
+                            <input class="form-control" name="directors" placeholder="Enter directors">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Diễn viên</label>
+                            <input class="form-control" name="casts" placeholder="Enter casts">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Thể loại</label>
+                            <input class="form-control" name="categories" placeholder="Enter categories">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Khởi chiếu</label>
+                            <input class="form-control" name="premiere" placeholder="Enter premiere">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Thời lượng</label>
+                            <input class="form-control" name="duration" placeholder="Enter duration">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Ngôn ngữ</label>
+                            <input class="form-control" name="language" placeholder="Enter language">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Giới hạn</label>
+                            <input class="form-control" name="rated" placeholder="Enter rated">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Media Trailer</label>
+                            <textarea rows="3" class="form-control" name="media" placeholder="Enter Media Trailer"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Mô tả</label>
+                            <textarea rows="3" class="form-control" name="description" placeholder="Enter description"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Hình ảnh</label>
+                            <div class="custom-file">
+                                <input type="file" name="image" class="custom-file-input">
+                                <label class="custom-file-label">Choose file...</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Thêm mới</button>
+                    </form>
+                </div>
 
             </main>
-            <footer class="py-4 bg-light mt-auto">
-                <div class="container-fluid">
-                    <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2019</div>
-                        <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
         <?php

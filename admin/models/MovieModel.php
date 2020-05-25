@@ -23,12 +23,20 @@ class MovieModel {
         return $this->db->single();
     }
 
+    public function getMovieBySlug($slug)
+    {
+        $this->db->query('SELECT * FROM movies WHERE slug = :slug');
+        $this->db->bind(':slug',$slug);
+        return $this->db->single();
+    }
+
     public function createMovie($data)
     {
-        $this->db->query('INSERT INTO movies (name,directors, casts,categories, premiere,duration,language,rated,description, image, media) 
-                    values (:name,:directors,:casts,:categories,:premiere,:duration,:language,:rated,:description,:image,:media)');
+        $this->db->query('INSERT INTO movies (name,slug,directors, casts,categories, premiere,duration,language,rated,description, image, media) 
+                    values (:name,:slug,:directors,:casts,:categories,:premiere,:duration,:language,:rated,:description,:image,:media)');
 
         $this->db->bind(":name",$data['name']);
+        $this->db->bind(":slug",$data['slug']);
         $this->db->bind(":directors",$data['directors']);
         $this->db->bind(":casts",$data['casts']);
         $this->db->bind(":categories",$data['categories']);
