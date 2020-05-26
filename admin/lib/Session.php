@@ -50,6 +50,30 @@ class Session {
         header("Location: /admin/login");
     }
 
+    function isLoginCustomer()
+    {
+        $nameCustomer = self::get("nameCustomer");
+
+        if ($nameCustomer!=false) {
+            $sql = "SELECT name FROM customers WHERE name = :name";
+
+            $db = new Database();
+
+            $db->query($sql);
+            $db->bind(":name",$nameCustomer);
+            $db->execute();
+
+            if ($db->rowCount()>0) {
+                return true;
+            }
+            else {
+                header("Location: /default/customer/login");
+            }
+
+        }
+        header("Location: /default/customer/login");
+    }
+
     public static function destroy() {
         session_destroy();
         header("Location: /admin/login.html");

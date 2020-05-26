@@ -21,4 +21,9 @@ class MovieController extends DefaultController {
 
     }
 
+    public function booking()
+    {
+        $this->view('movies/booking');
+    }
+
 }

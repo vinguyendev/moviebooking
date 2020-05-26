@@ -763,12 +763,11 @@ button.prev{
     border: 1px solid #cbcabe;
     color: #222;
     text-align: center;
-    width: 100px;
-    height: 70px;
+    width: 80px;
+    height: 34px;
     padding: 5px 10px;
     margin-top: 10px;
     margin-right: 10px;
-    margin-bottom: 10px;
 }
 
 .list-cinemas li {
@@ -849,10 +848,201 @@ button.prev{
 .list-show-time {
     display: flex;
     flex-direction: row;
-    height: 70px;
+    height: 80px;
 }
 
 .show-date-cinemas:hover {
     border: 2px solid #000;
 }
 
+.container-seat {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.contain-seat {
+    width: 800px;
+    margin: auto;
+    border: 1px solid #000;
+    height: 700px;
+}
+
+.contain-seat h4 {
+    width: 800px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    background-color: #000;
+}
+
+.info-room-seat {
+    width: 100%;
+    padding: 0px 10px;
+    border-bottom: 2px solid #d4d3c9;
+    background: #fff1ce;
+}
+
+.info-room-seat p {
+    margin-bottom: 0px;
+}
+
+.contain-seat-info {
+    width: 800px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #bcbdc0;
+    margin-top: 20px;
+}
+
+.contain-seat-info span {
+    font-weight: bold;
+}
+
+.contain-list-seat {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contain-row-seat {
+    text-align: center;
+    width: 220px;
+    height: 280px;
+}
+
+.contain-row-seat tbody {
+    width: 220px;
+    height: 220px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contain-row-seat tr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+td {
+    width: 22px;
+    height: 22px;
+    border: 1px solid #01c73c;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seat {
+    display: inline-block;
+    border: 1px solid transparent;
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+    font-size: 7pt;
+    margin: 0 1px;
+    padding: 1px 0;
+}
+
+.description-seat {
+    display: flex;
+    flex-direction: row;
+}
+
+.description-seat-item {
+    width: 200px;
+}
+
+.description-seat-item div {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.checkbox {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    margin-right: 5px;
+}
+
+.seat-checked {
+    background: #b11500;
+}
+
+.seat-selected {
+    background: #bbb;
+}
+
+.seat-standard {
+    border: 1px solid #01c73c;;
+}
+
+.seat-vip {
+    border: 1px solid #f71708;
+}
+
+.seat-sw {
+    background: #FF62B0;
+}
+
+.inform-booking {
+    width: 100%;
+    background-color: #000;
+    margin-top: 30px;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+}
+
+.inform-detail img {
+    width: 74px;
+    height: 108px;
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.inform-detail {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    width: 80%;
+}
+
+.btn-payment {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inform-detail p {
+    color: #ffffff;
+    margin: 0;
+}
+
+.inform-name {
+    width: 200px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.inform-cinema {
+    width: 150px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.payment-inform {
+    background-image: url("https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/bg-cgv-button-process.png");
+    width: 143px;
+    display: block;
+    height: 108px;
+    background-position: -134px -110px;
+}

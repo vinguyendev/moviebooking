@@ -25,9 +25,34 @@ class CoreDefault {
             call_user_func_array([$this->controller, $this->method], $this->params);
         }
         else {
-            var_dump('not oke');
+
+            if($url[1]!='login'){
+                $session = new Session();
+                $session->isLoginCustomer();
+            }
+
+            if($url[0]=='movies') $url[0] = 'MovieController';
+            if($url[0]=='customer') $url[0] = 'CustomerController';
+
+            if (file_exists('controllers/' . ucwords($url[0]) . '.php')) {
+                $this->controller = ucwords($url[0]);
+                unset($url[0]);
+            }
+
+            require_once 'controllers/'.$this->controller.'.php';
+            $this->controller = new $this->controller;
+
+            if (isset($url[1])) {
+                if (method_exists($this->controller, $url[1])) {
+                    $this->method = $url[1];
+                    unset($url[1]);
+                }
+            }
+
+            $this->params = $url ? array_values($url) : [];
+
+            call_user_func_array([$this->controller, $this->method], $this->params);
         }
-        die();
     }
 
     public function  getUrl()

@@ -8,8 +8,10 @@
 <?php
     require ('./config/config.php');
     require ('./admin/lib/Database.php');
+    require ('./admin/lib/Session.php');
 
     $db = new Database();
+
 
     $db->query("SELECT * FROM movies");
 
@@ -24,17 +26,6 @@
         include ("./components/header-mini.php");
         include ("./components/header-main.php");
     ?>
-    <div class="banner">
-        <div class="banner-left">
-            <a href="#" class="banner-left"><img src="./public/assets/baner-left-vn.jpg" alt=""></a>
-        </div>
-        <div class="banner-right">
-            <a href="#"><img src="./public/assets/en-banner-right-1.png" alt=""></a>
-            <a href="#"><img src="./public/assets/en-banner-right-2.png" alt=""></a>
-            <a href="#"><img src="./public/assets/vn-banner-right-3.png" alt=""></a>
-            <a href="#"><img src="./public/assets/vn-banner-right-4.png" alt=""></a>
-        </div>
-    </div>
 </div>
 
 <!--TODO:   CONTAINER -->
@@ -95,7 +86,7 @@
                                         <div class="name-movie"><?php echo $movie->name?></div>
                                         <div class="gr-button">
                                             <a href="/default/<?php echo $movie->slug?>" class="xem-chi-tiet">Xem chi tiết</a>
-                                            <a href="#" class="buy-ticket">
+                                            <a href="#" class="buy-ticket" onclick="selectMovie(<?php echo $movie->id?>)">
                                                 <span class="icon-call"></span>
                                                 Mua vé
                                             </a>
@@ -120,12 +111,6 @@
     </div>
 
     <div class="quang-cao">
-<!--        <div class="demo">-->
-<!--                <ul class="toggle-tabs">-->
-<!--                        <li id="ribon-left"><span>tức & Ưu đãi</span></li>-->
-<!--                        <li id= "ribon-right"><span>Thành viên CGV</span></li>-->
-<!--                </ul>-->
-<!--        </div>-->
         <div class="parent">
             <div class="content-quang-cao">
                 <ul class="abv-content">
@@ -141,10 +126,29 @@
         </div>
     </div>
 </div>
+<form method="get">
+    <input type="hidden" id="movie" name="movie">
+</form>
 
 <?php
     include ('./components/footer-content.php');
     include ('./components/footer.php');
+?>
+
+<script>
+    function selectMovie(movie) {
+        $('#movie').val(movie);
+        $('form').submit();
+    }
+</script>
+
+<?php
+    $movie_id = !empty($_GET['movie'])?$_GET['movie']: '';
+
+    if ($movie_id) {
+        include ('./components/popup-select-theater.php');
+    }
+
 ?>
 
 </body>
