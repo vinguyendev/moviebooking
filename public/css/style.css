@@ -753,6 +753,7 @@ button.prev{
 .list-day, .list-area {
     padding: 15px 10px;
     border-bottom: 2px solid #000;
+    height: 80px;
 }
 
 .popup-content,.list-cinemas {

@@ -19,12 +19,32 @@
 
 </div>
 
+<?php
+    $movie = !empty($_GET['movie'])? $_GET['movie']: 0;
+    $date = !empty($_GET['date'])? $_GET['date']: 0;
+    $area = !empty($_GET['area'])? $_GET['area']: 0;
+    $cinema = !empty($_GET['cinema'])? $_GET['cinema']: 0;
+    $show_time = !empty($_GET['show_time'])? $_GET['show_time']: 0;
+
+    $db = new Database();
+
+    $db->query("SELECT * FROM cinemas WHERE id='$cinema'");
+    $cinema = $db->single();
+    $db->query("SELECT * FROM show_times WHERE id='$show_time'");
+    $show_time = $db->single();
+    $date = substr($date,6,2).'/'.substr($date,4,2).'/'.substr($date,0,4);
+    $db->query("SELECT * FROM movies WHERE id='$movie'");
+    $movie = $db->single();
+    $db->query("SELECT * FROM seats");
+    $seats = $db->resultSet();
+?>
+
 <div class="container-seat">
     <div class="contain-seat">
         <h4>BOOKING ONLINE</h4>
         <div class="info-room-seat">
-            <p>CGV Vincom Center Bà Triệu | Số ghế (125/125)</p>
-            <p>27/05/2020 13:45 ~ 27/05/2020 15:43</p>
+            <p><?php echo $cinema->name?> | Số ghế (125/125)</p>
+            <p><?php echo $date?> <?php echo $show_time->name?> ~  <?php echo $date?> <?php echo $show_time->end_time?></p>
         </div>
         <div class="contain-seat-info">
             <span>Người / Ghế</span>
@@ -34,86 +54,27 @@
             <div class="row contain-row-seat">
                 <table>
                     <tbody>
-                        <tr>
-                            <td>A1</td>
-                            <td>A2</td>
-                            <td>A3</td>
-                            <td>A4</td>
-                            <td>A5</td>
-                            <td>A6</td>
-                            <td>A7</td>
-                            <td>A8</td>
-                        </tr>
-                        <tr>
-                            <td>A1</td>
-                            <td>A2</td>
-                            <td>A3</td>
-                            <td>A4</td>
-                            <td>A5</td>
-                            <td>A6</td>
-                            <td>A7</td>
-                            <td>A8</td>
-                        </tr>
-                        <tr>
-                            <td>A1</td>
-                            <td>A2</td>
-                            <td>A3</td>
-                            <td>A4</td>
-                            <td>A5</td>
-                            <td>A6</td>
-                            <td>A7</td>
-                            <td>A8</td>
-                        </tr>
-                        <tr>
-                            <td>A1</td>
-                            <td>A2</td>
-                            <td>A3</td>
-                            <td>A4</td>
-                            <td>A5</td>
-                            <td>A6</td>
-                            <td>A7</td>
-                            <td>A8</td>
-                        </tr>
-                        <tr>
-                            <td>A1</td>
-                            <td>A2</td>
-                            <td>A3</td>
-                            <td>A4</td>
-                            <td>A5</td>
-                            <td>A6</td>
-                            <td>A7</td>
-                            <td>A8</td>
-                        </tr>
-                        <tr>
-                            <td>A1</td>
-                            <td>A2</td>
-                            <td>A3</td>
-                            <td>A4</td>
-                            <td>A5</td>
-                            <td>A6</td>
-                            <td>A7</td>
-                            <td>A8</td>
-                        </tr>
-                        <tr>
-                            <td>A1</td>
-                            <td>A2</td>
-                            <td>A3</td>
-                            <td>A4</td>
-                            <td>A5</td>
-                            <td>A6</td>
-                            <td>A7</td>
-                            <td>A8</td>
-                        </tr>
-                        <tr>
-                            <td>A1</td>
-                            <td>A2</td>
-                            <td>A3</td>
-                            <td>A4</td>
-                            <td>A5</td>
-                            <td>A6</td>
-                            <td>A7</td>
-                            <td>A8</td>
-                        </tr>
+                        <?php
+                            for ($i=0;$i<=6;$i++) {
+                                ?>
+                                <tr>
+                                    <?php
+                                        for($j=0;$j<10;$j++) {
+                                            if($seats[$i * 10 + $j]->type == 0) {
+                                                ?>
+                                                <td class="seat-standard"><?php echo $seats[$i*10+$j]->name?></td>
+                                                <?php
+                                            } else {
+                                                ?>
+                                                <td class="seat-vip"><?php echo $seats[$i*10+$j]->name?></td>
+                                                <?php
+                                            }
+                                        }
+                                    ?>
+                                </tr>
+                                <?php
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
@@ -146,15 +107,16 @@
         </div>
         <div class="inform-booking">
             <div class="inform-detail">
-                <img src="https://www.cgv.vn/media/catalog/product/cache/1/thumbnail/dc33889b0f8b5da88052ef70de32f1cb/p/o/poster_baba_yaga_ac_quy_rung_sau_7_1__2.jpg" alt="">
+                <img src="../../public/uploads/<?php echo $movie->image?>" alt="">
                 <div class="inform-name">
-                    <p>BABA YAGA: ÁC QUỶ RỪNG SÂU</p>
+                    <p><?php echo $movie->name?></p>
                     <p>2D</p>
                     <p>C18</p>
                 </div>
                 <div class="inform-cinema">
                     <p>CGV Vincom Bà Triệu</p>
-                    <p>11h:00 27/05/2020</p>
+                    <p><?php echo $show_time->name?></p>
+                    <p><?php echo $date?></p>
                 </div>
                 <div class="inform-cinema">
                     <p>Phim: 0</p>

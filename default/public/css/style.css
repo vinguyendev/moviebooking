@@ -753,6 +753,7 @@ button.prev{
 .list-day, .list-area {
     padding: 15px 10px;
     border-bottom: 2px solid #000;
+    height: 70px;
 }
 
 .popup-content,.list-cinemas {
@@ -910,12 +911,12 @@ button.prev{
 
 .contain-row-seat {
     text-align: center;
-    width: 220px;
+    width: 300px;
     height: 280px;
 }
 
 .contain-row-seat tbody {
-    width: 220px;
+    width: 300px;
     height: 220px;
     margin-top: 20px;
     display: flex;
@@ -930,8 +931,8 @@ button.prev{
 }
 
 td {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     border: 1px solid #01c73c;
     font-size: 12px;
     display: flex;

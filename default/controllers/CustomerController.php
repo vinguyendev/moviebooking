@@ -23,6 +23,17 @@ class CustomerController extends DefaultController
         $this->view('customers/login');
     }
 
+    public function logout()
+    {
+
+        $this->view('customers/logout');
+    }
+
+    public function account()
+    {
+        $this->view('customers/account');
+    }
+
     public function loginCustomer($mobile, $password)
     {
         $mobile = $this->fm->validation($mobile);

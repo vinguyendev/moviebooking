@@ -10,10 +10,18 @@ $nameCus = $session::get('nameCustomer');
     <ul>
         <li><a href="#">tuyển dụng</a></li>
         <li><a href="#">liên hệ cgv</a></li>
-        <li><a href="#"><?php
-                if(empty($nameCus))  echo 'Đăng nhập đăng ký';
-                else echo $nameCus;
-                ?></a></li>
+        <?php
+        if(!empty($nameCus)) {
+            ?>
+            <li><a href="/default/customer/account"><?php echo $nameCus?></a></li>
+            <li><a href="/default/customer/logout">Thoát</a></li>
+            <?php
+            } else {
+                ?>
+            <li><a href="/default/customer/login">Đăng nhập/Đăng ký</a></li>
+            <?php
+        }
+        ?>
         <li><a href="#" id="VNese">VN</a><a href="#" id="EN">EN</a></li>
     </ul>
 </div>

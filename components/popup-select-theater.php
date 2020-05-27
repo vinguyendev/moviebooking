@@ -129,6 +129,8 @@
         $("form").submit();
     }
     function onSubmit(cinema,show_time) {
+        $('#date').val(<?php echo $date?>);
+        $('#area').val(<?php echo $area?>);
         $('#cinema').val(cinema);
         $('#show_time').val(show_time);
         $("form").attr('action','/default/movies/booking');
