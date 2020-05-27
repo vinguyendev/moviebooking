@@ -19,6 +19,12 @@
 
 ?>
 
+<?php
+    if (!empty($_GET['ok'])) {
+        echo '<script language="javascript">alert("Đặt phim thành công!");</script>';
+    }
+?>
+
 <body>
 <!--TODO:   HEADER + 2 fixed BANNER-->
 <div class="header">

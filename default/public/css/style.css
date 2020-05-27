@@ -973,10 +973,6 @@ td {
     margin-right: 5px;
 }
 
-.seat-checked {
-    background: #b11500;
-}
-
 .seat-selected {
     background: #bbb;
 }
@@ -991,6 +987,11 @@ td {
 
 .seat-sw {
     background: #FF62B0;
+}
+
+.seat-checked {
+    background: #b11500;
+    color: #ffffff;
 }
 
 .inform-booking {

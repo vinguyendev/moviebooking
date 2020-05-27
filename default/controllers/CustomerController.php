@@ -47,12 +47,13 @@ class CustomerController extends DefaultController
             $this->db->query($sql);
             $this->db->bind(":mobile",$mobile);
             $this->db->bind(":password",$password);
-            $this->db->execute();
+            $customer = $this->db->single();
 
-            if ($this->db->rowCount()>0) {
+            if ($customer) {
                 $session = new Session();
                 $session->set("mobile", $mobile);
-                $session->set("nameCustomer",$this->db->resultSet()[0]->name);
+                $session->set("nameCustomer",$customer->name);
+                $session->set("idCustomer",$customer->id);
 
                 header('Location: /');
             }
