@@ -29,7 +29,7 @@
                     <h1 style="text-align: center">Thêm phim mới</h1>
                     <br><br>
 
-                    <form action="<?php echo URL_ROOT?>/admin/movies/create" method="POST" enctype="multipart/form-data" >
+                    <form action="/admin/movies/create" method="POST" enctype="multipart/form-data" >
 
                         <div class="form-group">
                             <label>Tên phim</label>

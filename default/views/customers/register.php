@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <div class="container" style="width: 500px;margin: auto">
         <h1 style="text-align: center">Đăng nhập</h1>
         <br><br>
-        <form action="<?php echo URL_ROOT?>/default/customer/register" method="POST" enctype="multipart/form-data" >
+        <form action="/default/customer/register" method="POST" enctype="multipart/form-data" >
 
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Họ tên</label>

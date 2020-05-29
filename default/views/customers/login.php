@@ -33,7 +33,7 @@
     <div class="container" style="width: 500px;margin: auto">
         <h1 style="text-align: center">Đăng nhập</h1>
         <br><br>
-        <form action="<?php echo URL_ROOT?>/default/customer/login" method="POST" enctype="multipart/form-data" >
+        <form action="/default/customer/login" method="POST" enctype="multipart/form-data" >
 
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Số điện thoại</label>
@@ -48,7 +48,7 @@
                 </div>
             </div>
 
-            <p>Bạn chưa có tài khoản? <a href="<?php echo URL_ROOT?>/default/customer/register">Đăng ký</a></p>
+            <p>Bạn chưa có tài khoản? <a href="/default/customer/register">Đăng ký</a></p>
 
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label"></label>
