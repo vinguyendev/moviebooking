@@ -26,7 +26,7 @@ class CoreDefault {
         }
         else {
 
-            if($url[1]!='login' && $url[1]!='register'){
+            if($url[1]=='booking' || $url[1]=='account'){
                 $session = new Session();
                 $session->isLoginCustomer();
             }
