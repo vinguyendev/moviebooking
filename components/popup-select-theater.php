@@ -1,4 +1,4 @@
-<div id="cboxOverlay" style="opacity: 0.9;cursor: pointer;visibility: visible;display: block;"></div>
+<div id="cboxOverlay" onclick="closeBooking()" style="opacity: 0.9;cursor: pointer;visibility: visible;display: block;"></div>
 <?php
     $data = new DateTime();
 
@@ -135,5 +135,9 @@
         $('#show_time').val(show_time);
         $("form").attr('action','/default/movies/booking');
         $("form").submit();
+    }
+    function closeBooking() {
+        $('#cboxOverlay').css("display","none");
+        $('.contain-popup').css("display","none");
     }
 </script>

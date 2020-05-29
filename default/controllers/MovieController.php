@@ -29,12 +29,16 @@ class MovieController extends DefaultController {
 
     public function showing()
     {
-        $this->view('movies/showing');
+        $data = $this->movie->getMoviesShowing();
+
+        $this->view('movies/showing',$data);
     }
 
     public function coming()
     {
-        $this->view('movies/coming');
+        $data = $this->movie->getMoviesComing();
+
+        $this->view('movies/coming', $data);
     }
 
     public function booking()

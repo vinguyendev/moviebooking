@@ -16,6 +16,20 @@ class MovieModel {
         return $this->db->resultSet();
     }
 
+    public function getMoviesShowing()
+    {
+        $this->db->query("SELECT * FROM movies WHERE status=1");
+
+        return $this->db->resultSet();
+    }
+
+    public function getMoviesComing()
+    {
+        $this->db->query("SELECT * FROM movies WHERE status=0");
+
+        return $this->db->resultSet();
+    }
+
     public function getMovieById($id)
     {
         $this->db->query('SELECT * FROM movies WHERE id = :id');
