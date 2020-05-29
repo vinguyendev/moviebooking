@@ -248,3 +248,26 @@ span.movie-rating-detail.c18 {
 #tabs-right iframe {
     text-align: center;
 }
+
+.header-movie {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.header-movie h3 {
+    color: #222;
+    font-size: 38px;
+    text-transform: capitalize;
+}
+
+.header-movie h5 a {
+    color: #666;
+    padding-left: 15px;
+    font-size: 20px;
+    white-space: nowrap;
+    text-transform: uppercase;
+}

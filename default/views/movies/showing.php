@@ -39,7 +39,13 @@
     </div>
     <div class="main">
         <div class="main-default">
+            <div class="header-movie">
+                <h3>Phim đang chiếu</h3>
+                <h5><a href="/default/movies/coming">Phim sắp chiếu</a></h5>
+            </div>
+            <div>
 
+            </div>
         </div>
     </div>
 </div>

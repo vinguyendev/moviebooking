@@ -32,7 +32,7 @@
                 <span>/ </span>
             </li>
             <li class="category5">
-                <a href="" title="">Phim Đang Chiếu</a>
+                <a href="/default/movies/showing" title="">Phim Đang Chiếu</a>
                 <span>/ </span>
             </li>
             <li class="product">
