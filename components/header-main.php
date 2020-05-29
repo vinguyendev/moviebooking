@@ -6,8 +6,8 @@
             </li>
             <li id="mini-menu1" class="hover-effect">
                 <ul id="child-menu1" class="child-menu">
-                    <li><a href="#" class="hover-red">Phim đang chiếu</a></li>
-                    <li><a href="#" class="hover-red">Phim sắp chiếu</a></li>
+                    <li><a href="/default/movies/showing" class="hover-red">Phim đang chiếu</a></li>
+                    <li><a href="/default/movies/coming" class="hover-red">Phim sắp chiếu</a></li>
                 </ul>
                 phim
             </li>

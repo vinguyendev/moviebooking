@@ -23,6 +23,42 @@ class CustomerController extends DefaultController
         $this->view('customers/login');
     }
 
+    public function register()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+            $mobile = $_POST['mobile'];
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $area = $_POST['area'];
+            $password = $_POST['password'];
+
+            $data = [
+                'name'=>trim($name),
+                'mobile' => trim($mobile),
+                'email' => trim($email),
+                'area' => trim($area),
+                'password'=>trim($password)
+            ];
+
+            if($this->customer->createCustomer($data)) {
+                $id = $this->customer->getIdMax();
+                $session = new Session();
+                $session->set("mobile", $mobile);
+                $session->set("nameCustomer",$name);
+                $session->set("idCustomer",$id->max);
+                header('Location: /?register=1');
+            }
+            else {
+                header("Location: /default/customer/register");
+            }
+
+        }
+        else {
+            $this->view('customers/register');
+        }
+    }
+
     public function logout()
     {
 

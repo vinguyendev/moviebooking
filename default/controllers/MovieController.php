@@ -27,6 +27,16 @@ class MovieController extends DefaultController {
 
     }
 
+    public function showing()
+    {
+        $this->view('movies/showing');
+    }
+
+    public function coming()
+    {
+        $this->view('movies/coming');
+    }
+
     public function booking()
     {
         $this->view('movies/booking');

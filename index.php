@@ -23,6 +23,9 @@
     if (!empty($_GET['ok'])) {
         echo '<script language="javascript">alert("Đặt phim thành công!");</script>';
     }
+    if (!empty($_GET['register'])) {
+        echo '<script language="javascript">alert("Đăng ký thành công!");</script>';
+    }
 ?>
 
 <body>
