@@ -26,9 +26,9 @@
                     </nav>
                 </div>
 
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="/admin/booking">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                    Charts
+                    Booking
                 </a>
                 <a class="nav-link" href="tables.html">
                     <div class="sb-nav-link-icon">

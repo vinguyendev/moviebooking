@@ -39,4 +39,11 @@ class CustomerModel {
         return $this->db->single();
     }
 
+    public function getNameById($id)
+    {
+        $this->db->query("SELECT name FROM customers WHERE id='$id'");
+
+        return $this->db->single();
+    }
+
 }

@@ -15,12 +15,19 @@ class Movies extends Controller {
 
     public function index()
     {
-        $movies = $this->movie->getMovies();
-        $data = [
-            'movies' => $movies
-        ];
+        $data = $this->movie->getMovies();
 
         $this->view('movies/index', $data);
+    }
+
+    public function delete()
+    {
+        $id = trim($_POST['idmovie']);
+
+        if ($this->movie->deleteMovies($id)) {
+            header('Location: /admin/movies');
+        }
+        header('Location: /admin/movies');
     }
 
     public function create()

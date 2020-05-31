@@ -10212,3 +10212,27 @@ body {
 .sb-sidenav-light .sb-sidenav-footer {
   background-color: #e9ecef;
 }
+
+.tr-movie img {
+  width: 120px;
+  height: 170px;
+}
+
+.model-delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.model-delete-btn {
+  display: flex;
+  padding: 0px 50px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.model-delete-btn button{
+  margin: 0 30px;
+}

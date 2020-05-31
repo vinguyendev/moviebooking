@@ -69,4 +69,23 @@ class MovieModel {
 
     }
 
+
+    public function deleteMovies($id)
+    {
+        $this->db->query("DELETE FROM movies WHERE id='$id'");
+
+        if ($this->db->execute()) {
+            return true;
+        }
+        return false;
+    }
+
+
+    public function getNameMovieById($id)
+    {
+        $this->db->query("SELECT name FROM movies WHERE id='$id'");
+
+        return $this->db->single();
+    }
+
 }
